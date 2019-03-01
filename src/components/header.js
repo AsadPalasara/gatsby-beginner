@@ -10,7 +10,7 @@ const Header = ({ siteTitle }) => (
       </div>
       <ul className="nav" style={{ listStyle: `none`, float: `right`, margin: `0`, alignSelf:`center`}}>
         <li><Link to="/" activeClassName="active">Home</Link></li>
-        <li><Link to="/blogs/" activeClassName="active">blog</Link></li>
+        <li><Link to="/blogpost/" activeClassName="active">blog</Link></li>
         <li><Link to="/about-us/" activeClassName="active">About</Link></li>
         <li><Link to="/contact-us/" activeClassName="active">Contact</Link></li>
       </ul>
