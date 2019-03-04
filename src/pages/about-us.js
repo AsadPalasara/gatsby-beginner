@@ -6,10 +6,14 @@ import Banner from "../components/banner"
 const aboutus = () => (
   <Layout>
     <SEO title="About us" />
-    <Banner><span>About us</span></Banner>
-    <div className="wrapper">
-      <h2>About us content Soon...</h2> 
-    </div>  
+    <Banner>
+      <h1>
+        <span>About us</span>
+      </h1>
+    </Banner>
+    <div className="container">
+      <h2>About us content Soon...</h2>
+    </div>
   </Layout>
 )
 

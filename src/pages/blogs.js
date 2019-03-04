@@ -1,26 +1,32 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
+import Banner from "../components/banner"
 import SEO from "../components/seo"
 
-const BlogPosts = ({ data }) => {
-  const blogPosts = data.allContentfulMyBlogs.edges
+const Blogs = ({ data }) => {
+  const bloglist = data.allContentfulMyBlogs.edges
   return (
     <Layout>
       <SEO title="Blog posts" />
-      <div className="wrapper">
-        <h1>{"Here's a list of all blogposts!"}</h1>
-        <div className="blogposts">
-          {blogPosts.map(({ node: post }) => (
-            <ul key={post.id}>
-              <li>
+      <Banner>
+        <h1>
+          <span>blogs Lists</span>
+        </h1>
+      </Banner>
+      <div className="container">
+        <div className="bloglist">
+          <ul className="row list-unstyled">
+            {bloglist.map(({ node: post }) => (
+              <li key={post.id} className="col-3">
+                <img src={post.avtar.fluid.src} />
                 <Link to={`/blogs/${post.slug}`}>{post.title}</Link>
                 <span>{post.tags}</span>
+                <p>{post.content}</p>
               </li>
-              <img src={post.avtar.fluid.src} alt="" />
-            </ul>
-          ))}
+            ))}
+          </ul>
           <span className="mgBtm__24" />
           <Link to="/">Go back to the homepage</Link>
         </div>
@@ -29,10 +35,10 @@ const BlogPosts = ({ data }) => {
   )
 }
 
-export default BlogPosts
+export default Blogs
 
 export const query = graphql`
-  query BlogPostsPageQuery {
+  query bloglistPageQuery {
     allContentfulMyBlogs {
       edges {
         node {
@@ -44,7 +50,7 @@ export const query = graphql`
             content
           }
           avtar {
-            fluid {
+            fluid(maxHeight: 250) {
               src
             }
             file {

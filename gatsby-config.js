@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Demo Gatsby`,
     description: `Connect to content full`,
-    author: `@gatsbyjs`,
+    author: `@Asad`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -14,6 +14,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -31,9 +32,9 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `9azwjnto5hvn`,
-        accessToken: `a4efd28ee7b1bdd7be73b413554e0ac9f0da2554a9d2550a8c488b8749af7eb6`
-      }
-    }
+        accessToken: `a4efd28ee7b1bdd7be73b413554e0ac9f0da2554a9d2550a8c488b8749af7eb6`,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
