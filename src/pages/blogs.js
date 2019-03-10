@@ -19,16 +19,26 @@ const Blogs = ({ data }) => {
         <div className="bloglist">
           <ul className="row list-unstyled">
             {bloglist.map(({ node: post }) => (
-              <li key={post.id} className="col-3">
-                <img src={post.avtar.fluid.src} />
-                <Link to={`/blogs/${post.slug}`}>{post.title}</Link>
-                <span>{post.tags}</span>
-                <p>{post.content}</p>
+              <li key={post.id} className="col-lg-3 col-6">
+                <Link to={`/blogs/${post.slug}`}>
+                  <img src={post.avtar.fluid.src} />
+                  <Link to={`/blogs/${post.slug}`}>{post.title}</Link>
+                  <div className="tags">
+                    <Link to={`/blogs/${post.slug}`} className="tags">
+                      {post.tags}
+                    </Link>
+                  </div>
+                  {/* <div className="Tagsmain">
+                    {bloglist.map(element => (
+                      <li>{post.tags}</li>
+                    ))}
+                  </div> */}
+                  <p>{post.content}</p>
+                </Link>
               </li>
             ))}
           </ul>
           <span className="mgBtm__24" />
-          <Link to="/">Go back to the homepage</Link>
         </div>
       </div>
     </Layout>
@@ -39,7 +49,7 @@ export default Blogs
 
 export const query = graphql`
   query bloglistPageQuery {
-    allContentfulMyBlogs {
+    allContentfulMyBlogs(sort: { fields: slug, order: ASC }) {
       edges {
         node {
           id

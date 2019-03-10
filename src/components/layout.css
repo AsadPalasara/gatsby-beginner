@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700");
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Montserrat", "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+}
+
+.header-nav {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.header-nav .nav a:hover {
+  text-decoration: none;
+  color: #333;
+}
+.banner h1 {
+  text-transform: uppercase;
+  color: #fff;
+  margin-left: 200px;
+  margin-bottom: 0;
+}
+
+.banner h1 span {
+  background: #fff;
+  padding: 5px 10px;
+  color: #333;
+}
+.nav li {
+  float: left;
+  margin-bottom: 0;
+}
+
+.nav a {
+  color: #333;
+  margin: 0 20px;
+  text-decoration: none;
+  font-size: 16px;
+  padding-bottom: 6px;
+  position: relative;
+}
+
+.nav a:after {
+  content: "";
+  width: 0;
+  height: 1px;
+  background: #333;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: ease-out 0.2s;
+}
+
+.nav a:hover:after,
+.nav a.active:after {
+  right: 0;
+  width: 100%;
+  transition: ease-in 0.4s;
+}
+
+.logo {
+  margin: 0px;
+  font-size: 40px;
+  flex: 1 1 0%;
+}
+
+header {
+  background: transparent;
+}
+
+.logo a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 700;
+}
+.banner {
+  background: url(../images/4.jpg)  
+  height: 350px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.bloglist img {
+  margin-bottom: 10px;
+}
+.bloglist li span,
+.bloglist img {
+  clear: both;
+  display: block;
+}
+.bloglist li a {
+  clear: both;
+}

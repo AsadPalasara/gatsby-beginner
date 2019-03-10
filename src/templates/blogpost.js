@@ -1,58 +1,45 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
+import get from "lodash/get"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Banner from "../components/banner"
 
-const BlogPosts = ({ data }) => {
-  const blogPosts = data.allContentfulMyBlogs.edges
-  return (
-    <Layout>
-      <SEO title="Blog posts" />
-      <div className="wrapper">
-        <h1>{"Here's a list of all blogposts!"}</h1>
-        <div className="blogposts">
-          {blogPosts.map(({ node: post }) => (
-            <ul key={post.id}>
-              <li>
-                <Link to={`/blogs/${post.slug}`}>{post.title}</Link>
-                <span>{post.tags}</span>
-              </li>
-              <img src={post.avtar.fluid.src} alt="" />
-            </ul>
-          ))}
-          <span className="mgBtm__24" />
-          <Link to="/">Go back to the homepage</Link>
+class BlogPosts extends React.Component {
+  render() {
+    const posts = get(this.props, "data.contentfulMyBlogs")
+
+    return (
+      <Layout>
+        <SEO title={posts.title} />
+        {/* <SEO description={posts.description} /> */}
+        <Banner>
+          <h1>
+            <span>{posts.title}</span>
+          </h1>
+        </Banner>
+        <div className="container">
+          <div className="blogposts">
+            <span>{posts.tags}</span>
+            <img src={posts.avtar.fluid.src} />
+            <p>{posts.content}</p>
+          </div>
         </div>
-      </div>
-    </Layout>
-  )
+      </Layout>
+    )
+  }
 }
 
 export default BlogPosts
 
 export const query = graphql`
-  query BlogPostsPageQuery {
-    allContentfulMyBlogs {
-      edges {
-        node {
-          id
-          slug
-          title
-          tags
-          childContentfulMyBlogsContentRichTextNode {
-            content
-          }
-          avtar {
-            fluid {
-              src
-            }
-            file {
-              url
-              fileName
-              contentType
-            }
-          }
+  query BlogPostBySlugsdjskdk($slug: String!) {
+    contentfulMyBlogs(slug: { eq: $slug }) {
+      title
+      tags
+      avtar {
+        fluid {
+          src
         }
       }
     }

@@ -1,23 +1,54 @@
 import React from "react"
 import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import SEO from "../components/seo"
 import Banner from "../components/banner"
+import SEO from "../components/seo"
 
-const contactus = () => (
+const Contact = props => (
   <Layout>
+    <SEO title="Blog posts" />
     <Banner>
       <h1>
-        <span>Contact us</span>
+        <span>Contact Us</span>
       </h1>
     </Banner>
-    <SEO title="Contact us" />
     <div className="container">
-      <h2>No Worry Feel Free TO Contact Me</h2>
-      <Link to="/">Go back to your Gully !! </Link>
+      <section id="contact" className="contact-form">
+        <h2>GET IN TOUCH</h2>
+        <form
+          className="row"
+          name="contact"
+          method="post"
+          action="/success"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="bot-field" />
+
+          <div className="field col-md-6">
+            <input type="text" name="name" id="name" required />
+            <label htmlFor="name">Name</label>
+          </div>
+          <div className="field col-md-6">
+            <input type="text" name="email" id="email" required />
+            <label htmlFor="email">Email</label>
+          </div>
+          <div className="field col-12">
+            <textarea name="message" id="message" rows="6" required />
+            <label htmlFor="message">Message</label>
+          </div>
+          <div className="action">
+            <input
+              type="submit"
+              value="Send Message"
+              className="draw-border special"
+            />
+            <input type="reset" value="Clear" className="draw-border " />
+          </div>
+        </form>
+      </section>
     </div>
   </Layout>
 )
 
-export default contactus
+export default Contact
