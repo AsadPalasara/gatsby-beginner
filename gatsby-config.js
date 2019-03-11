@@ -17,6 +17,9 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     {
+      resolve: "@contentful/gatsby-transformer-contentful-richtext",
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,

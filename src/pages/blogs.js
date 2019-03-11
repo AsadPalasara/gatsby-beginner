@@ -9,7 +9,7 @@ const Blogs = ({ data }) => {
   const bloglist = data.allContentfulMyBlogs.edges
   return (
     <Layout>
-      <SEO title="Blog posts" />
+      <SEO title="Blog posts lists" />
       <Banner>
         <h1>
           <span>blogs Lists</span>
@@ -17,24 +17,40 @@ const Blogs = ({ data }) => {
       </Banner>
       <div className="container">
         <div className="bloglist">
-          <ul className="row list-unstyled">
+          <ul className="card-deck mb-4 list-unstyled justify-content-center">
             {bloglist.map(({ node: post }) => (
-              <li key={post.id} className="col-lg-3 col-6">
-                <Link to={`/blogs/${post.slug}`}>
-                  <img src={post.avtar.fluid.src} />
-                  <Link to={`/blogs/${post.slug}`}>{post.title}</Link>
-                  <div className="tags">
-                    <Link to={`/blogs/${post.slug}`} className="tags">
-                      {post.tags}
+              <li key={post.id} className="card shadow bg-white">
+                <img src={post.avtar.fluid.src} />
+                <div className="card-body pad-top-0">
+                  <h4>
+                    <Link to={`/blogs/${post.slug}`} className="clear-fix">
+                      {post.title}
                     </Link>
+                  </h4>
+                  <div className="tags float-left mrg-btm-10">
+                    {post.tags.map(tag => (
+                      <span className="tags" key={tag}>
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                   {/* <div className="Tagsmain">
                     {bloglist.map(element => (
                       <li>{post.tags}</li>
                     ))}
                   </div> */}
-                  <p>{post.content}</p>
-                </Link>
+                  <p className="float-left">
+                    {post.bodyText.childMarkdownRemark.excerpt}
+                  </p>
+                  <div className="readmore">
+                    <Link
+                      to={`/blogs/${post.slug}`}
+                      className="clear-fix btn btn-outline-primary stretched-link"
+                    >
+                      Read More
+                    </Link>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>
@@ -49,7 +65,7 @@ export default Blogs
 
 export const query = graphql`
   query bloglistPageQuery {
-    allContentfulMyBlogs(sort: { fields: slug, order: ASC }) {
+    allContentfulMyBlogs(sort: { fields: slug, order: ASC }, limit: 3) {
       edges {
         node {
           id
@@ -58,6 +74,16 @@ export const query = graphql`
           tags
           childContentfulMyBlogsContentRichTextNode {
             content
+          }
+          images {
+            fluid {
+              src
+            }
+          }
+          bodyText {
+            childMarkdownRemark {
+              excerpt(pruneLength: 100)
+            }
           }
           avtar {
             fluid(maxHeight: 250) {
