@@ -16,10 +16,9 @@ const Contact = props => (
         <h2>GET IN TOUCH</h2>
         <form
           className="row"
-          name="contact"
+          name="contac-form"
           method="post"
-          action="/success/"
-          data-netlify-recaptcha="true"
+          action="/success/" 
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
