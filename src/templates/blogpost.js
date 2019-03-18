@@ -14,10 +14,11 @@ class BlogPosts extends React.Component {
         {/* <SEO description={posts.description} /> */}
         <div className="container">
           <div className="blogdetail border mb-5 mt-5 shadow-sm p-3 pt-4">
-            <h2 className="text-center">{posts.title}</h2>
-            <h6 className="mb-4 blockquote-footer text-lg-center">{posts.createdAt}</h6>
-            <img src={posts.avtar.fluid.src} className="mb-3"/>
+            <h1 className="text-center">{posts.title}</h1>
+            <h6 className="mb-4 blockquote-footer text-center">{posts.createdAt}</h6>
+            <img src={posts.image.fluid.src} className="mb-3"/>
             <p>{posts.bodyText.childMarkdownRemark.excerpt}</p>
+            <span className="mb-4 blockquote-footer"><Link to={`/blogs/`}>Back To Blog Lists</Link></span>
           </div>
         </div>
       </Layout>
@@ -44,7 +45,7 @@ export const query = graphql`
           src
         }
       }
-      images {
+      image {
         fluid {
           src
         }

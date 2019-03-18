@@ -225,8 +225,7 @@ header {
 }
 
 .blogdetail {
-  width: 700px;
-  max-width: 100%;
+  max-width: 85%;
   margin: 0 auto;
 }
 
@@ -234,6 +233,7 @@ header {
   clear: both;
   display: block;
   margin: 0 auto;
+  max-width: 100%;
 }
 
 .pad-top-0 {
@@ -258,6 +258,12 @@ footer a {
   color: #333;
 }
 
+@media (max-width: 992px) {
+  .blogdetail {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 575px) {
   .nav {
     margin: 12px 0 50px 0;
@@ -275,8 +281,5 @@ footer a {
   }
   .banner h1 {
     margin-left: 0;
-  }
-  .bloglist img {
-    max-width: 100%;
   }
 }

@@ -20,7 +20,7 @@ const Blogs = ({ data }) => {
           <ul className="card-deck mb-4 list-unstyled justify-content-center">
             {bloglist.map(({ node: post }) => (
               <li key={post.id} className="card shadow-sm bg-white">
-                <img src={post.avtar.fluid.src} />
+                <img src={post.image.fluid.src} />
                 <div className="card-body pad-top-0">
                   <h4>
                     <Link to={`/blogs/${post.slug}`} className="clear-fix">
@@ -77,8 +77,8 @@ export const query = graphql`
           childContentfulMyBlogsContentRichTextNode {
             content
           }
-          images {
-            fluid {
+          image {
+            fluid(resizingBehavior:SCALE, maxHeight:280) {
               src
             }
           }
