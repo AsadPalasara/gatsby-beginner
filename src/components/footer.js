@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react" 
 
 const Footer = ({ siteTitle }) => (
-  <footer style={{ margin: `50px 0` }}>
+  <footer style={{}}>
     <div className="container">
       <p style={{ textAlign: `center` }}>
         All Right Reserve © {new Date().getFullYear()}, Built with

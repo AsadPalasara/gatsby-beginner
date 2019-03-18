@@ -19,13 +19,14 @@ const Blogs = ({ data }) => {
         <div className="bloglist">
           <ul className="card-deck mb-4 list-unstyled justify-content-center">
             {bloglist.map(({ node: post }) => (
-              <li key={post.id} className="card shadow bg-white">
+              <li key={post.id} className="card shadow-sm bg-white">
                 <img src={post.avtar.fluid.src} />
                 <div className="card-body pad-top-0">
                   <h4>
                     <Link to={`/blogs/${post.slug}`} className="clear-fix">
                       {post.title}
                     </Link>
+                    <span className="blockquote-footer form-control-sm mt-2">{post.createdAt}</span>
                   </h4>
                   <div className="tags float-left mrg-btm-10">
                     {post.tags.map(tag => (
@@ -72,6 +73,7 @@ export const query = graphql`
           slug
           title
           tags
+          createdAt(fromNow:true)
           childContentfulMyBlogsContentRichTextNode {
             content
           }

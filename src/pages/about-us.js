@@ -18,14 +18,14 @@ const aboutus = ({ data }) => {
         <div className="media">
           <img
             src={pic}
-            className="align-items-center mr-3"
+            className="align-items-center mr-3 rounded-circle"
             style={{
               Width: `280px`,
               maxWidth: `280px`,
               borderRadius: `50% !important`,
             }}
           />
-          <div className="media-body">
+          <div className="media-body align-self-center">
             <h4>Asad Palasara</h4>
             <p>My Name is Khan </p>
             <p>

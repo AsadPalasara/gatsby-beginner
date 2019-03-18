@@ -1,5 +1,4 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react" 
 import Layout from "../components/layout"
 import Banner from "../components/banner"
 import SEO from "../components/seo"
@@ -19,7 +18,8 @@ const Contact = props => (
           className="row"
           name="contact"
           method="post"
-          action="/success"
+          action="/success/"
+          data-netlify-recaptcha="true"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
         >
@@ -37,13 +37,10 @@ const Contact = props => (
             <textarea name="message" id="message" rows="6" required />
             <label htmlFor="message">Message</label>
           </div>
+          <div data-netlify-recaptcha="true"></div>
           <div className="action">
-            <input
-              type="submit"
-              value="Send Message"
-              className="draw-border special"
-            />
-            <input type="reset" value="Clear" className="draw-border " />
+            <input type="submit" value="Send Message" className="draw-border btn btn-outline-primary btn-outline-dark clear-fix stretched-link"/>
+            <input type="reset" value="Clear" className="draw-border btn btn-outline-primary btn-outline-dark clear-fix stretched-link" />
           </div>
         </form>
       </section>
