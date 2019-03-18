@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 
 const Success = () => (
   <Layout>
-    <SEO title="Blog post" />
+    <SEO title="Thank You" />
     <Banner>
       <h1>
         <span>Thank You</span>

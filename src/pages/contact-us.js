@@ -14,7 +14,7 @@ const Contact = props => (
     <div className="container">
       <section id="contact" className="contact-form">
         <h2>GET IN TOUCH</h2>
-        <form name="contact-form" className="row" method="post" action="/success/" data-netlify="true" data-netlify-honeypot="bot-field">
+        <form name="contact-form" className="row" method="post" action="/thank-you/" data-netlify="true" data-netlify-honeypot="bot-field">
           <input type="hidden" name="bot-field" /> 
           <div className="field col-md-6">
             <input type="text" name="name" id="name" required />
