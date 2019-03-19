@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-
 import Layout from "../components/layout"
 import Banner from "../components/banner"
 import SEO from "../components/seo"
+import Img from "gatsby-image"
 
 const Blogs = ({ data }) => {
   const bloglist = data.allContentfulMyBlogs.edges
@@ -20,7 +20,7 @@ const Blogs = ({ data }) => {
           <ul className="card-deck mb-4 list-unstyled justify-content-center">
             {bloglist.map(({ node: post }) => (
               <li key={post.id} className="card shadow-sm bg-white">
-                <img src={post.image.fluid.src} />
+                <Img fluid={post.image.fluid} />
                 <div className="card-body pad-top-0">
                   <h4>
                     <Link to={`/blogs/${post.slug}`} className="clear-fix">
@@ -41,7 +41,7 @@ const Blogs = ({ data }) => {
                     ))}
                   </div> */}
                   <p className="float-left">
-                    {post.bodyText.childMarkdownRemark.excerpt}
+                    {post.bodyText.childMarkdownRemark.excerpt} 
                   </p>
                   <div className="readmore">
                     <Link
@@ -76,25 +76,15 @@ export const query = graphql`
           createdAt(fromNow:true)
           childContentfulMyBlogsContentRichTextNode {
             content
-          }
-          image {
-            fluid(resizingBehavior:SCALE, maxHeight:280) {
-              src
-            }
-          }
+          } 
           bodyText {
             childMarkdownRemark {
               excerpt(pruneLength: 100)
             }
           }
-          avtar {
-            fluid(maxHeight: 250) {
-              src
-            }
-            file {
-              url
-              fileName
-              contentType
+          image {
+            fluid(maxHeight: 580, resizingBehavior:SCALE) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
         }

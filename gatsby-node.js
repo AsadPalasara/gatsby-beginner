@@ -21,19 +21,13 @@ exports.createPages = ({ graphql, actions }) => {
               slug
               title
               tags
-              childContentfulMyBlogsContentRichTextNode {
-                content
-              }
-              avtar {
-                fluid {
-                  src
+              createdAt
+              bodyText {
+                childMarkdownRemark {
+                  html
+                  excerpt
                 }
-                file {
-                  url
-                  fileName
-                  contentType
-                }
-              }
+              }  
             }
           }
         }

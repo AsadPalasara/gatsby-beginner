@@ -14,18 +14,18 @@ const Contact = props => (
     <div className="container">
       <section id="contact" className="contact-form">
         <h2>GET IN TOUCH</h2>
-        <form name="contact-page" method="post" action="/thanks" data-netlify="true" data-netlify-honeypot="bot-field" className="row">
+        <form name="contact-page" method="post" action="/thanks" data-netlify="true" data-netlify-honeypot="bot-field" className="row mt-5">
           <input type="hidden" name="bot-field" /> 
           <div className="field col-md-6">
-            <input type="text" name="name" id="name" required />
+            <input type="text" name="name" id="name" required className="input" />
             <label htmlFor="name">Name</label>
           </div>
           <div className="field col-md-6">
-            <input type="email" name="email" id="email" required />
+            <input type="email" name="email" id="email" required className="input"/>
             <label htmlFor="email">Email</label>
           </div>
           <div className="field col-12">
-            <textarea name="message" id="message" rows="6" required />
+            <textarea name="message" id="message" rows="6" required className="input"/>
             <label htmlFor="message">Message</label>
           </div> 
           <div className="action">

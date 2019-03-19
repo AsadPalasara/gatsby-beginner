@@ -49,30 +49,7 @@ export const query = graphql`
           id
           slug
           title
-          tags
-          childContentfulMyBlogsContentRichTextNode {
-            content
-          }
-          images {
-            fluid {
-              src
-            }
-          }
-          bodyText {
-            childMarkdownRemark {
-              excerpt(pruneLength: 100)
-            }
-          }
-          avtar {
-            fluid(maxHeight: 250) {
-              src
-            }
-            file {
-              url
-              fileName
-              contentType
-            }
-          }
+          tags 
         }
       }
     }
