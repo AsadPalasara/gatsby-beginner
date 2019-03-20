@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Demo Gatsby`,
+    title: `Gatsby Starter`,
     description: `Connect to content full`,
     author: `@Asad`,
   },
@@ -28,7 +28,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/my.jpg`, // This path is relative to the root of the site.
+        icon: `src/images/avtar.png`, // This path is relative to the root of the site.
       },
     },
     {

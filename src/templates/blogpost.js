@@ -16,11 +16,11 @@ class BlogPosts extends React.Component {
         <div className="container">
           <div className="blogdetail border mb-5 mt-5 shadow-sm p-3 pt-4">
             <div className="d-flex">
-              <Link className="align-self-center badge-warning btn font-weight-lighter" to={`/blogs/`}>&#8592;</Link>
+              <Link className="align-self-center badge-warning btn font-weight-lighter" to={`/blogs/`}>&#8592; Back</Link>
               <h1 className="flex-fill text-center">{posts.title}</h1>
             </div>
             <h6 className="mb-4 blockquote-footer text-center">{posts.createdAt}</h6>
-            <Img className="mb-4" fluid={posts.image.fluid}/>
+            <Img className="mb-4" fluid={posts.image.fluid} alt="posts.title"/>
             <div
               dangerouslySetInnerHTML={{
                 __html: posts.bodyText.childMarkdownRemark.html,

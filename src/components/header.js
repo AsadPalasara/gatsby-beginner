@@ -21,12 +21,12 @@ const Header = ({ siteTitle }) => (
             </Link>
           </li>
           <li>
-            <Link to="/about-us/" activeClassName="active">
+            <Link to="/about/" activeClassName="active">
               About
             </Link>
           </li>
           <li>
-            <Link to="/contact-us/" activeClassName="active">
+            <Link to="/contact/" activeClassName="active">
               Contact
             </Link>
           </li>
