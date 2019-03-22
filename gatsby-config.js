@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Gatsby Starter`,
-    description: `Connect to content full`,
+    description: `Gatsby using with content full`,
+    siteUrl: `https://beginner.netlify.com/`,
     author: `@Asad`,
   },
   plugins: [
@@ -18,6 +19,9 @@ module.exports = {
     `gatsby-plugin-sharp`,
     {
       resolve: "@contentful/gatsby-transformer-contentful-richtext",
+    },
+    {
+      resolve: `gatsby-plugin-sitemap` 
     },
     {
       resolve: `gatsby-plugin-manifest`,

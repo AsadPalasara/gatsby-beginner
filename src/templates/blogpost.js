@@ -16,17 +16,35 @@ class BlogPosts extends React.Component {
         <div className="container">
           <div className="blogdetail border mb-5 mt-5 shadow-sm p-3 pt-4">
             <div className="d-flex">
-              <Link className="align-self-center badge-warning btn font-weight-lighter" to={`/blogs/`}>&#8592; Back</Link>
+              <Link
+                className="align-self-center badge-warning btn font-weight-lighter"
+                to={`/blogs/`}
+              >
+                &#8592; Back
+              </Link>
               <h1 className="flex-fill text-center">{posts.title}</h1>
             </div>
-            <h6 className="mb-4 blockquote-footer text-center">{posts.createdAt}</h6>
-            <Img className="mb-4" fluid={posts.image.fluid} alt="posts.title"/>
+            <h6 className="mb-4 blockquote-footer text-center">
+              {posts.updatedAt}
+            </h6>
+            <Img
+              className="mb-4"
+              fluid={posts.image.fluid}
+              alt="posts.title"
+            />
             <div
               dangerouslySetInnerHTML={{
                 __html: posts.bodyText.childMarkdownRemark.html,
               }}
             />
-            <span className="mb-4"><Link className="badge-warning btn d-block font-weight-lighter" to={`/blogs/`}>&#8592; Back To Blog Lists</Link></span>
+            <span className="mb-4">
+              <Link
+                className="badge-warning btn d-block font-weight-lighter"
+                to={`/blogs/`}
+              >
+                &#8592; Back To Blog Lists
+              </Link>
+            </span>
           </div>
         </div>
       </Layout>
@@ -37,22 +55,22 @@ class BlogPosts extends React.Component {
 export default BlogPosts
 
 export const query = graphql`
-  query BlogPostBySlugsdjskdk($slug: String!) { 
-    contentfulMyBlogs(slug: { eq: $slug }) {
-      title
-      tags
-      createdAt(fromNow:true)
-      bodyText {
-        childMarkdownRemark {
-          html
-          excerpt(pruneLength: 500)
-        }
-      }  
-      image {
-        fluid(maxWidth: 1800) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-      }
-    }  
-  }
-`
+         query BlogPostBySlugsdjskdk($slug: String!) {
+           contentfulMyBlogs(slug: { eq: $slug }) {
+             title
+             tags
+             updatedAt(formatString: "MMMM Do, YYYY")
+             bodyText {
+               childMarkdownRemark {
+                 html
+                 excerpt(pruneLength: 500)
+               }
+             }
+             image {
+               fluid(maxWidth: 1800) {
+                 ...GatsbyContentfulFluid_withWebp_noBase64
+               }
+             }
+           }
+         }
+       `
