@@ -15,7 +15,7 @@ const Contact = props => (
       <section id="contact" className="contact-form">
         <h2>GET IN TOUCH</h2>
         <form name="form-contact" method="post" action="/thanks" data-netlify="true" data-netlify-honeypot="bot-field" className="row mt-5">
-          <input type="hidden" name="form-contact" value="contact" />  
+          <input type="hidden" name="bot-field" value="contact" />  
           <div className="field col-md-6">
             <input type="text" name="name" id="name" required className="input" />
             <label htmlFor="name">Name</label>
